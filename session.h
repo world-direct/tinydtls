@@ -33,12 +33,21 @@ typedef struct {
 
 #else /* WITH_CONTIKI */
 
+typedef struct {
+	unsigned char size;
+	char * host;
+	int hostLen;
+	int port;
+} session_t;
+
+/*
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
 typedef struct {
-  socklen_t size;		/**< size of addr */
+  socklen_t size;		//< size of addr
   union {
     struct sockaddr     sa;
     struct sockaddr_storage st;
@@ -47,6 +56,9 @@ typedef struct {
   } addr;
   uint8_t ifindex;
 } session_t;
+
+*/
+
 #endif /* WITH_CONTIKI */
 
 /** 

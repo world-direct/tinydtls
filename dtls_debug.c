@@ -205,28 +205,28 @@ dsrv_print_addr(const session_t *addr, char *buf, size_t len) {
 #endif /* NDEBUG */
 
 #ifndef WITH_CONTIKI
-void 
-dsrv_log(log_t level, char *format, ...) {
-  static char timebuf[32];
-  va_list ap;
-  FILE *log_fd;
-
-  if (maxlog < (int)level)
-    return;
-
-  log_fd = level <= DTLS_LOG_CRIT ? stderr : stdout;
-
-  if (print_timestamp(timebuf,sizeof(timebuf), time(NULL)))
-    fprintf(log_fd, "%s ", timebuf);
-
-  if (level <= DTLS_LOG_DEBUG) 
-    fprintf(log_fd, "%s ", loglevels[level]);
-
-  va_start(ap, format);
-  vfprintf(log_fd, format, ap);
-  va_end(ap);
-  fflush(log_fd);
-}
+//void 
+//dsrv_log(log_t level, char *format, ...) {
+//  static char timebuf[32];
+//  va_list ap;
+//  FILE *log_fd;
+//
+//  if (maxlog < (int)level)
+//    return;
+//
+//  log_fd = level <= DTLS_LOG_CRIT ? stderr : stdout;
+//
+//  if (print_timestamp(timebuf,sizeof(timebuf), time(NULL)))
+//    fprintf(log_fd, "%s ", timebuf);
+//
+//  if (level <= DTLS_LOG_DEBUG) 
+//    fprintf(log_fd, "%s ", loglevels[level]);
+//
+//  va_start(ap, format);
+//  vfprintf(log_fd, format, ap);
+//  va_end(ap);
+//  fflush(log_fd);
+//}
 #elif defined (HAVE_VPRINTF) /* WITH_CONTIKI */
 void 
 dsrv_log(log_t level, char *format, ...) {
