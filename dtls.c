@@ -2257,7 +2257,7 @@ dtls_send_client_key_exchange(dtls_context_t *ctx, dtls_peer_t *peer)
     len = CALL(ctx, get_psk_info, &peer->session, DTLS_PSK_IDENTITY,
 	       handshake->keyx.psk.identity, handshake->keyx.psk.id_length,
 	       buf + sizeof(uint16),
-	       min(sizeof(buf) - sizeof(uint16),
+	       tdls_min(sizeof(buf) - sizeof(uint16),
 		   sizeof(handshake->keyx.psk.identity)));
     if (len < 0) {
       dtls_crit("no psk identity set in kx\n");

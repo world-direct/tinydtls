@@ -20,12 +20,12 @@
 
 #include <stdint.h>
 
-#ifndef min
-#define min(A,B) ((A) <= (B) ? (A) : (B))
+#ifndef tdls_min
+#define tdls_min(A,B) ((A) <= (B) ? (A) : (B))
 #endif
 
-#ifndef max
-#define max(A,B) ((A) < (B) ? (B) : (A))
+#ifndef tdls_max
+#define tdls_max(A,B) ((A) < (B) ? (B) : (A))
 #endif
 
 /* this one is for consistency... */

@@ -35,8 +35,8 @@
 #include "global.h"
 #include "dtls_debug.h"
 
-#ifndef min
-#define min(a,b) ((a) < (b) ? (a) : (b))
+#ifndef tdls_min
+#define tdls_min(a,b) ((a) < (b) ? (a) : (b))
 #endif
 
 static int maxlog = DTLS_LOG_WARN;	/* default maximum log level */
@@ -57,7 +57,7 @@ dtls_get_log_level() {
 void
 dtls_set_log_level(log_t level) {
 #ifdef NDEBUG
-  maxlog = min(level, DTLS_LOG_INFO);
+  maxlog = tdls_min(level, DTLS_LOG_INFO);
 #else /* !NDEBUG */
   maxlog = level;
 #endif /* NDEBUG */
@@ -137,8 +137,8 @@ dsrv_print_addr(const session_t *addr, char *buf, size_t len) {
 
     break;
   default:
-    memcpy(buf, "(unknown address type)", min(22, len));
-    return min(22, len);
+    memcpy(buf, "(unknown address type)", tdls_min(22, len));
+    return tdls_min(22, len);
   }
 
   if (inet_ntop(addr->addr.sa.sa_family, addrptr, p, len) == 0) {
